@@ -1,0 +1,73 @@
+@import "@fontsource-variable/inter";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+  html {
+    @apply antialiased;
+  }
+  body {
+    @apply bg-surface text-ink-900 font-sans text-sm;
+    font-feature-settings: "cv11", "ss01";
+  }
+  /* Financial figures always align */
+  .tnum {
+    font-feature-settings: "tnum", "cv11";
+    font-variant-numeric: tabular-nums;
+  }
+  ::selection {
+    @apply bg-brand-100 text-brand-900;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-surface-raised rounded-card shadow-card border border-ink-100;
+  }
+  .input {
+    @apply w-full rounded-lg border border-ink-200 bg-white px-3 py-2 text-sm text-ink-900
+      placeholder:text-ink-400 focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-400
+      disabled:bg-ink-50 disabled:text-ink-400;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-1.5 rounded-lg px-3.5 py-2 text-sm font-medium
+      transition-colors focus:outline-none focus:ring-2 focus:ring-brand-500/40 disabled:opacity-50 disabled:pointer-events-none;
+  }
+  .btn-primary {
+    @apply btn bg-brand-700 text-white hover:bg-brand-800 active:bg-brand-900;
+  }
+  .btn-secondary {
+    @apply btn bg-white text-ink-700 border border-ink-200 hover:bg-ink-50 hover:text-ink-900;
+  }
+  .btn-ghost {
+    @apply btn text-ink-500 hover:bg-ink-100 hover:text-ink-800;
+  }
+  .btn-ai {
+    @apply btn bg-ai-600 text-white hover:bg-ai-700;
+  }
+  .btn-danger {
+    @apply btn bg-white text-negative-600 border border-negative-100 hover:bg-negative-50;
+  }
+  .table-th {
+    @apply px-3 py-2 text-left text-2xs font-semibold uppercase tracking-wider text-ink-400 border-b border-ink-100 whitespace-nowrap;
+  }
+  .table-td {
+    @apply px-3 py-2.5 border-b border-ink-100/70 text-ink-800 align-top;
+  }
+}
+
+/* subtle scrollbars */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-ink-200 rounded-full border-2 border-transparent bg-clip-padding;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
